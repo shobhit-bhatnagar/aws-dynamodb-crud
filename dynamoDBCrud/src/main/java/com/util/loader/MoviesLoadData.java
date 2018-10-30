@@ -17,20 +17,23 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.util.constants.Constants;
 
 public class MoviesLoadData {
 
+	// run with one argument as region
  public static void main(String[] args) throws Exception {
 
+	 String region = args[0];
      AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-         .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
+         .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(Constants.LOCAL_HOST, region))
          .build();
 
      DynamoDB dynamoDB = new DynamoDB(client);
 
-     Table table = dynamoDB.getTable("Movies");
-
-     JsonParser parser = new JsonFactory().createParser(new File("/Users/shobhit/Downloads/moviedata-2.json"));
+     Table table = dynamoDB.getTable(Constants.TABLE_NAME);
+   
+     JsonParser parser = new JsonFactory().createParser(new File(MoviesLoadData.class.getResource("moviesdata.json").toString()));
 
      JsonNode rootNode = new ObjectMapper().readTree(parser);
      Iterator<JsonNode> iter = rootNode.iterator();
