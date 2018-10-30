@@ -1,4 +1,4 @@
-package com.util.dynamodb;
+package com.util.triggers;
 /*
  * Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
@@ -45,7 +45,7 @@ import com.amazonaws.services.dynamodbv2.util.TableUtils;
  * This sample demonstrates how to perform a few simple operations with the
  * Amazon DynamoDB service.
  */
-public class AmazonDynamoDBSample {
+public class DynamoDBMain {
 
     /*
      * Before running the code:
