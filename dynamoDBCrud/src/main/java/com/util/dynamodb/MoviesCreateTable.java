@@ -1,4 +1,4 @@
-package com.amazonaws.samples;
+package com.util.dynamodb;
 
 import java.util.Arrays;
 import java.util.Iterator;
