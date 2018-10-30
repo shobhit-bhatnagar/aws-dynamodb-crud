@@ -1,4 +1,4 @@
-package com.amazonaws.samples;
+package com.util.dynamodb;
 /*
  * Copyright 2012-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
