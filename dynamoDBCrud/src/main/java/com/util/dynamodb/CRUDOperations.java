@@ -16,19 +16,20 @@ import com.amazonaws.services.dynamodbv2.document.spec.DeleteItemSpec;
 import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.ReturnValue;
-import com.amazonaws.services.sns.AmazonSNSClient;
+import com.util.constants.Constants;
+
 public class CRUDOperations {
 
 	
 	 public static void main(String[] args) throws Exception {
 
 	        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-	            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
+	            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(Constants.LOCAL_HOST, "us-west-2"))
 	            .build();
 
 	        DynamoDB dynamoDB = new DynamoDB(client);
 
-	        Table table = dynamoDB.getTable("Movies");
+	        Table table = dynamoDB.getTable(Constants.TABLE_NAME);
 
 	        
 	      
